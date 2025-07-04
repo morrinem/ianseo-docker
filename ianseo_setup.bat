@@ -1,3 +1,3 @@
 //wsl --install
 echo "done"
-wsl ./ianseo_setup_wsl.sh
+wsl -e ./ianseo_setup_wsl.sh
