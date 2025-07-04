@@ -8,4 +8,13 @@ services:
     db:
         image: mysql:5.7.29
         environment:
-            MYSQL_ROOT_PASSWORD: docker_db_root
+            MYSQL_ALLOW_EMPTY_PASSWORD: true
+        volumes:
+        - db_volume:/var/lib/mysql
+        - "./ianseo_account_setup.sql:/docker-entrypoint-initdb.d/1.sql"
+        networks:
+            default:
+                aliases:
+                - ianseo_db
+volumes:
+    db_volume:
